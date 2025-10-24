@@ -16,9 +16,9 @@ const variantStyles = {
 }
 
 const sizeStyles = {
-    "sm": "p-2",
-    "md": "p-4",
-    "lg": "p-6"
+    "sm": "p-2 rounded-sm",
+    "md": "p-4 rounded-md",
+    "lg": "p-6 rounded-xl"
 }
 
 const defaultStyles = "rounded-md flex"
