@@ -5,14 +5,15 @@ export interface ButtonProps {
     variant: Variants;
     size: "sm" | "md" | "lg";
     text: string;
-    startIcon?: any;
-    endIcon?: any;
-    onClick: () => void;
+    startIcon?: ReactElement;
+    onClick?: () => void;
+    fullWidth?: boolean;
+    loading?: boolean;
 }
 
 const variantStyles = {
     "primary": "bg-blue-600 text-white",
-    "secondary": "bg-blue-400 text-white"
+    "secondary": "bg-blue-400 text-blue"
 }
 
 const sizeStyles = {
@@ -21,11 +22,9 @@ const sizeStyles = {
     "lg": "p-6 rounded-xl"
 }
 
-const defaultStyles = "rounded-md flex"
+const defaultStyles = "px-4 py-2 rounded-md font-light flex items-center";
 
 export const Button = (props: ButtonProps) => {
-    return <button className={`${variantStyles[props.variant]} ${defaultStyles} ${sizeStyles[props.size]}`}>
-        {props.startIcon} {props.text} {props.endIcon}</button>
+    return <button onClick ={onClick} className={`${variantStyles[props.variant]} ${defaultStyles} ${sizeStyles[props.size]}`}>
+        {props.startIcon} {props.text}</button>
 }
-
-<Button variant="primary" size="md" onClick={() => {}} text={"asd"} />
