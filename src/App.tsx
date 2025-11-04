@@ -1,23 +1,15 @@
-import { useState } from 'react'
-import './App.css'
-import { Button } from './components/ui/Button'
-import { PlusIcon } from './icons/plusicon'
-import { ShareIcon } from './icons/shareicon'
-import { Card } from './components/ui/Card'
-
+import { Signin } from "./pages/Signin"
+import { Signup } from "./pages/Signup"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Dashboard } from "./pages/dashboard"
 function App() {
-  const [count, setCount] = useState(0)
-
-return (
-  <div className="p-3">
-<div className="flex justify-end gap-4">
-  <Button startIcon= {< PlusIcon size={'lg'} />} size="sm" variant="primary" text="Add Content"/>
-  <Button startIcon={<ShareIcon size={'lg'}/>} size="sm"variant="secondary" text="Share"/>
-  </div>
-
-  <Card type="twitter" link="https://x.com/reet_rpsc/status/1127047944417546240" title="first tweet"/>
-  <Card type="youtube" link="https://youtu.be/Cc33wOBAKDM" title="yt"/>
-</div>
-)
+  return <BrowserRouter>
+    <Routes>
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/signin" element={<Signin />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
+  </BrowserRouter>
 }
+
 export default App
