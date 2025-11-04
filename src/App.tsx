@@ -1,5 +1,5 @@
 import { Signin } from "./pages/Signin"
-import { Signup } from "./pages/Signup"
+import { Signup } from "./pages/Signin"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Dashboard } from "./pages/dashboard"
 function App() {
