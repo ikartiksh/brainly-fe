@@ -8,7 +8,6 @@ interface CardProps {
 }
 
 export function Card({ title, link, type }: CardProps) {
-    // Load Twitter script when needed
     useEffect(() => {
         if (type === "twitter") {
             const script = document.createElement("script");
@@ -21,7 +20,6 @@ export function Card({ title, link, type }: CardProps) {
         }
     }, [type]);
 
-    // ✅ Helper that extracts YouTube video ID from many URL formats
     const getYouTubeVideoId = (url: string): string | null => {
         try {
             const ytUrl = new URL(url.startsWith("http") ? url : `https://${url}`);
@@ -32,13 +30,11 @@ export function Card({ title, link, type }: CardProps) {
                 if (ytUrl.searchParams.has("v")) {
                     return ytUrl.searchParams.get("v");
                 }
-                // Handle /embed/VIDEO_ID or /shorts/VIDEO_ID
                 const parts = ytUrl.pathname.split("/");
                 const idx = parts.findIndex(p => ["embed", "shorts"].includes(p));
                 if (idx !== -1 && parts[idx + 1]) return parts[idx + 1];
             }
 
-            // Short link format: youtu.be/VIDEO_ID
             if (hostname === "youtu.be") {
                 return ytUrl.pathname.split("/")[1] || null;
             }
@@ -54,7 +50,6 @@ export function Card({ title, link, type }: CardProps) {
         return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
     };
 
-    // Rendering
     let content: JSX.Element | null = null;
 
     if (type === "youtube") {
