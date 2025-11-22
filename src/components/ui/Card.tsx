@@ -25,7 +25,6 @@ export function Card({ title, link, type }: CardProps) {
             const ytUrl = new URL(url.startsWith("http") ? url : `https://${url}`);
             const hostname = ytUrl.hostname;
 
-            // Normal watch URL
             if (hostname.includes("youtube.com")) {
                 if (ytUrl.searchParams.has("v")) {
                     return ytUrl.searchParams.get("v");
@@ -82,7 +81,7 @@ export function Card({ title, link, type }: CardProps) {
                 rel="noopener noreferrer"
                 className="text-blue-600 underline"
             >
-                View on GitHub
+                View GitHub Repository
             </a>
         );
     }
